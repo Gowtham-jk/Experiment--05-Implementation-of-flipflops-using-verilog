@@ -112,29 +112,88 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 Developed by: 
 RegisterNumber:  
 */
-
-
-
-
-
+### SR FLIPFLOP
+```
+module FlipFlopSR(S,R,clock,Q,Qbar);
+input S,R,clock;
+output Q,Qbar;
+wire X,Y;
+nand(X,S,clock);
+nand(Y,R,clock);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+```
+### D FLIPFLOP
+```
+module FlipFlopD(D,clock,Q,Qbar);
+input D,clock;
+output Q,Qbar;
+assign Dbar=~D;
+wire X,Y;
+nand(X,D,clock);
+nand(Y,Dbar,clock);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+```
+### JK FLIPFLOP
+```
+module FlipFlopJK(J,K,clock,Q,Qbar);
+input J,K,clock;
+output Q,Qbar;
+wire P,S;
+nand(P,J,clock,Qbar);
+nand(S,K,clock,Q);
+nand(Q,P,Qbar);
+nand(Qbar,S,Q);
+endmodule
+```
+### T FLIPFLOP
+```
+module FlipFlopT(T,clock,Q,Qbar);
+input T,clock;
+output Q,Qbar;
+wire A,B;
+nand(A,T,clock,Qbar);
+nand(B,T,clock,Q);
+nand(Q,A,Qbar);
+nand(Qbar,B,Q);
+endmodule
+```
 
 ### RTL LOGIC FOR FLIPFLOPS 
+### SR FLIPFLOP
 
+![Screenshot 2023-12-20 215727](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/b4915ecb-286a-46fd-aef0-3027a0d65912)
 
+### D FLIPFLOP
 
+![Screenshot 2023-12-20 215751](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/75efa888-7c85-455c-af4e-e248189a0b72)
+### JK FLIPFLOP
+![Screenshot 2023-12-20 215759](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/42a8aad6-e35c-494e-9f6b-1c6447a458c2)
 
+### T FLIPFLOP
 
-
+![Screenshot 2023-12-20 215806](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/4c0f3fb3-a4cc-4589-a75a-c9a0879e4e10)
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+### SR FLIPFLOP 
+![Screenshot 2023-12-20 215822](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/dfef2d4f-ca5b-4914-a542-69dc35128ca2)
 
+### D FLIPFLOP 
+![Screenshot 2023-12-20 215828](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/939ec6ee-e3c8-4c9c-9bc3-865af98769cd)
 
+### JK FLIPFLOP
+![Screenshot 2023-12-20 215835](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/23b95ba0-3f9d-42c0-b724-74d2759688ec)
 
-
+### T FLIPFLOP 
+![Screenshot 2023-12-20 215843](https://github.com/Gowtham-jk/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149857834/aad54961-bc23-4a31-8f5c-91a2e0c86dd9)
 
 
 
 ### RESULTS 
+Thus the flipflops circuit are designed and the truth table is verified using quartus software
